@@ -1,1 +1,12 @@
-<h1>Edit patient</h1>
+<h1>View patient</h1>
+
+<div>
+  <strong>First name: </strong>
+  {{ patient.firstName }}
+</div>
+<div>
+  <strong>Last name: </strong>
+  {{ patient.lastName }}
+</div>
+
+<button ng-click="edit()">Edit</button>
