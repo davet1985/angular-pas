@@ -8,7 +8,7 @@
     </tr>
     <tr ng-repeat="(key, patient) in patientList">
       <td>
-        <a href="#/patient/{{patient.id}}">{{patient.firstName}} {{patient.lastName}}</a>
+        <a href="#/patient/{{patient._id.$oid}}">{{patient.firstName}} {{patient.lastName}}</a>
       </td>
     </tr>
   </table>

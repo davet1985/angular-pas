@@ -25,15 +25,19 @@ angular.module('myApp.patient', ['ngRoute', 'ngResource', 'configService'])
 .factory('Patient', function($resource, configService) {
   return $resource(configService.API_END_POINT + "patient/:id", {}, {
     query: {
-      isArray: false,
+      isArray: true,
       url: configService.API_END_POINT + "patients"
+    },
+    update: {
+      isArray: false,
+      method: "PUT"
     }
   });
 })
 
 .controller('PatientListCtrl', ['$scope', 'Patient', function($scope, Patient) {
   Patient.query(function(data) {
-    $scope.patientList = data.patients;
+    $scope.patientList = data;
   });
 }])
 
@@ -56,7 +60,7 @@ angular.module('myApp.patient', ['ngRoute', 'ngResource', 'configService'])
   });
 
   $scope.submit = function() {
-    Patient.save(
+    Patient.update(
       { id: $routeParams.id },
       $scope.patient,
       function() {
