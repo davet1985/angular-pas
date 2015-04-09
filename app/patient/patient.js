@@ -35,10 +35,21 @@ angular.module('myApp.patient', ['ngRoute', 'ngResource', 'configService'])
   });
 })
 
-.controller('PatientListCtrl', ['$scope', 'Patient', function($scope, Patient) {
+.controller('PatientListCtrl', ['$scope', '$location', 'Patient', function($scope, $location, Patient) {
   Patient.query(function(data) {
     $scope.patientList = data;
   });
+
+  $scope.delete = function(id) {
+    $('#patient_' + id).siblings().find('button').prop('disabled', true).text('Deleting...');
+    Patient.delete(
+      { id: id },
+      {},
+      function() {
+        $('#patient_' + id).parent().remove();
+      }
+    );
+  }
 }])
 
 .controller('PatientViewCtrl', ['$scope', '$routeParams', '$location', 'Patient', function($scope, $routeParams, $location, Patient) {
@@ -68,6 +79,8 @@ angular.module('myApp.patient', ['ngRoute', 'ngResource', 'configService'])
 }])
 
 .controller('PatientCreateCtrl', ['$scope', '$routeParams', '$location', 'Patient', function($scope, $routeParams, $location, Patient) {
+  $scope.patient = {};
+
   $scope.submit = function() {
     Patient.save(
       {},

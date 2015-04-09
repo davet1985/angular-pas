@@ -5,10 +5,14 @@
   <table>
     <tr>
       <th>Name</th>
+      <th>&nbsp;</th>
     </tr>
     <tr ng-repeat="(key, patient) in patientList">
-      <td>
+      <td id="patient_{{patient._id.$oid}}">
         <a href="#/patient/{{patient._id.$oid}}">{{patient.firstName}} {{patient.lastName}}</a>
+      </td>
+      <td>
+        <button ng-click="delete(patient._id.$oid)">Delete</button>
       </td>
     </tr>
   </table>
