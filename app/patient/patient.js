@@ -5,19 +5,19 @@ angular.module('myApp.patient', ['ngRoute', 'ngResource', 'configService'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/patients', {
-      templateUrl: 'patient/list.html',
+      templateUrl: 'app/patient/list.html',
       controller: 'PatientListCtrl'
     })
     .when('/patient', {
-      templateUrl: 'patient/create.html',
+      templateUrl: 'app/patient/create.html',
       controller: 'PatientCreateCtrl'
     })
     .when('/patient/:id', {
-      templateUrl: 'patient/view.html',
+      templateUrl: 'app/patient/view.html',
       controller: 'PatientViewCtrl'
     })
     .when('/patient/:id/edit', {
-      templateUrl: 'patient/edit.html',
+      templateUrl: 'app/patient/edit.html',
       controller: 'PatientEditCtrl'
     });
 }])

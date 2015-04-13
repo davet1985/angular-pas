@@ -1,10 +1,10 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "name": "pas-front-end",
+  "description": "PAS front-end written in AngularJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/davet1985/pas-front-end",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {
     "angular": "1.2.x",
     "angular-route": "1.2.x",
