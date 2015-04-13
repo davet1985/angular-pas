@@ -4,7 +4,7 @@ angular.module('configService', [])
 
 .factory('configService', function() {
   
-  var API_END_POINT = 'http://localhost:9494/';
+  var API_END_POINT = 'https://across-ruby-grape.herokuapp.com/';
   return {
     API_END_POINT: API_END_POINT
   };
