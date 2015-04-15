@@ -21,7 +21,8 @@ module.exports = function(grunt) {
                     'app/app.js',
                     'app/controllers/*.js',
                     'app/services/*.js',
-                    'config/<%= env %>.js'
+                    'config/<%= env %>.js',
+                    'config/prod.js'
                 ],
                 dest: 'public/js/app.js'
             }
