@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        env : process.env.NODE_ENV,
+        env: process.env.NODE_ENV,
 
         pkg: grunt.file.readJSON('package.json'),
 
@@ -44,14 +44,10 @@ module.exports = function(grunt) {
  
     });
 
-    // grunt.loadNpmTasks('grunt-contrib-compass');
-    // grunt.loadNpmTasks('grunt-contrib-jshint');
-    // grunt.loadNpmTasks('grunt-contrib-uglify');
-    // grunt.loadNpmTasks('grunt-contrib-copy');
-    // grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
     
     grunt.registerTask('default', ['concat']);
+    grunt.registerTask('heroku:prod', ['concat']);
     
 };
