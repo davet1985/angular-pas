@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.patient', ['ngRoute', 'ngResource', 'configService'])
+angular.module('myApp.patient', ['ngRoute', 'ngResource'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -22,11 +22,11 @@ angular.module('myApp.patient', ['ngRoute', 'ngResource', 'configService'])
     });
 }])
 
-.factory('Patient', function($resource, configService) {
-  return $resource(configService.API_END_POINT + "patient/:id", {}, {
+.factory('Patient', function($resource, CONFIG) {
+  return $resource(CONFIG.API_BASE_URL + "patient/:id", {}, {
     query: {
       isArray: true,
-      url: configService.API_END_POINT + "patients"
+      url: CONFIG.API_BASE_URL + "patients"
     },
     update: {
       isArray: false,

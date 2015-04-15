@@ -6,6 +6,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+        env : process.env.NODE_ENV,
+
         pkg: grunt.file.readJSON('package.json'),
 
         concat: {
@@ -16,9 +18,10 @@ module.exports = function(grunt) {
                     'app/bower_components/angular/angular.js',
                     'app/bower_components/angular-route/angular-route.js',
                     'app/bower_components/angular-resource/angular-resource.js',
-                    'app/app.js', 
+                    'app/app.js',
                     'app/controllers/*.js',
                     'app/services/*.js',
+                    'config/<%= env %>.js'
                 ],
                 dest: 'public/js/app.js'
             }
@@ -29,8 +32,9 @@ module.exports = function(grunt) {
                     'app/app.js', 
                     'app/controllers/*.js', 
                     'app/services/*.js',
+                    'config/<%= env %>.js'
                 ],
-                tasks: ['prod'],
+                tasks: ['default'],
                 options: {
                     spawn: true
                 }
