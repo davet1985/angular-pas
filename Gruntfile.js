@@ -20,9 +20,26 @@ module.exports = function(grunt) {
                     'app/bower_components/angular-resource/angular-resource.js',
                     'app/app.js',
                     'app/controllers/*.js',
-                    'app/services/*.js',
-                    'config/<%= env %>.js',
+                    'app/services/*.js'
+                ],
+                dest: 'public/js/src.js'
+            },
+            config_dev: {
+                src: [
+                    'config/dev.js'
+                ],
+                dest: 'public/js/config.js'
+            },
+            config_prod: {
+                src: [
                     'config/prod.js'
+                ],
+                dest: 'public/js/config.js'
+            },
+            combine: {
+                src: [
+                    'public/js/src.js',
+                    'public/js/config.js'
                 ],
                 dest: 'public/js/app.js'
             }
@@ -47,7 +64,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
     
-    grunt.registerTask('default', ['concat']);
-    grunt.registerTask('heroku:prod', ['concat']);
+    grunt.registerTask('default', ['concat:dist', 'concat:config_dev', 'concat:combine']);
+    grunt.registerTask('heroku:prod', ['concat:dist', 'concat:config_prod', 'concat:combine']);
     
 };
